@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(image.jpg);
+  background-size: 50%;
+  background-repeat: repeat;
+
+  margin: 0;
+  min-height: 100vh;
+  padding: 20px;
+
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#logo {
+  background: white;
+  border: 1.5px solid #ccc;
+  border-radius: 16px;
+  padding: 10px 30px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+#logo img {
+  height: 40px;
+  display: block;
+}
+
+nav {
+  background: white;
+  border: 1.5px solid #ccc;
+  border-radius: 16px;
+  padding: 20px 30px;
+  max-width: 1000px;
+  margin: 0 auto 30px auto;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+#sort-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+#sort-form h3 {
+  margin: 0 0 0 15px;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+
+#sort-form h3:first-of-type {
+  margin-top: 0;
+}
+
+#sort-form h3:nth-of-type(2) {
+  margin-top: 15px;
+}
+
+#sort-form label {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#main-pokemon-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#main-pokemon-section:empty {
+  display: none;
+}
+
+#main-pokemon-section > div {
+  background: white;
+  border-radius: 16px;
+  border: 1.5px solid #ccc;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#main-pokemon-section > div > p:first-child {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: #666;
+  border-bottom: 1px solid #eee;
+  width: 100%;
+  padding-bottom: 8px;
+}
+
+#main-pokemon-section > div img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin: 10px 0;
+}
+
+#main-pokemon-section > div h2 {
+  margin: 5px 0 15px 0;
+  font-size: 22px;
+  text-transform: capitalize;
+}
+
+#main-pokemon-section > div p {
+  margin: 5px 0;
+  font-size: 13px;
+  color: #444;
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 15px;
+  }
+}

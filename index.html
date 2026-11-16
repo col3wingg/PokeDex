@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div id="logo">
+      <img src="pokeapi.png">
+    </div>
+  </header>
+
+  <main>
+    <nav>
+      <form id="sort-form">
+        <h3>Sorting:</h3>
+
+        <label for="id">Id:</label>
+        <input type="radio" id="id-radio-input" value="id" name="sorting-radio" checked>
+        •
+        <label for="name">Name:</label>
+        <input type="radio" id="name-radio-input" value="name" name="sorting-radio">
+        •
+        <label for="health">Health:</label>
+        <input type="radio" id="health-radio-input" value="health" name="sorting-radio">
+        •
+        <label for="damage">Damage:</label>
+        <input type="radio" id="damage-radio-input" value="damage" name="sorting-radio">
+        •
+        <label for="defense">Defense:</label>
+        <input type="radio" id="defense-radio-input" value="defense" name="sorting-radio">
+
+        <h3>Order:</h3>
+
+        <label for="fstb-label">From smallest to biggest:</label>
+        <input type="radio" id="fstb-radio-input" name="sorting-order" checked>
+        •
+        <label for="fbts-label">From biggest to smallest:</label>
+        <input type="radio" id="fbts-radio-input" name="sorting-order">
+      </form>
+    </nav>
+
+    <section id="main-pokemon-section"></section>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
