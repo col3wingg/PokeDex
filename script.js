@@ -83,7 +83,9 @@ async function sortPokemons(detailedPokemons) {
 async function load_pokemon() {
     const section = document.getElementById("main-pokemon-section")
 
-    const fetch_url = "https://pokeapi.co/api/v2/pokemon?limit=100"
+    const count = document.getElementById("pokemon-count-input").value
+
+    const fetch_url = `https://pokeapi.co/api/v2/pokemon?limit=${count}`
 
     try {
         const response = await fetch(fetch_url);
@@ -132,7 +134,15 @@ async function load_pokemon() {
 $(document).ready(function() {
     load_pokemon()
 
-    $("#id-radio-input, #name-radio-input, #health-radio-input, #damage-radio-input, #defense-radio-input, #fstb-radio-input, #fbts-radio-input").change(function() {
+    $("form").on("submit", function(e) {
+        e.preventDefault();
+    })
+
+    $("#apply-count").on("click", function() {
+        load_pokemon()
+    })
+
+    $("#id-radio-input, #name-radio-input, #health-radio-input, #damage-radio-input, #defense-radio-input, #fstb-radio-input, #fbts-radio-input, #pokemon-count-input").change(function() {
         load_pokemon()
     })
 })
