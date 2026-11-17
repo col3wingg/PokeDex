@@ -3,6 +3,10 @@ async function fetchPokemonDetails(url) {
     return await response.json()
 }
 
+async function searchPokemons(detailedPokemons, search_value) {
+    return detailedPokemons.filter(pokemon => pokemon.name.toLowerCase().includes(search_value.toLowerCase()))
+}
+
 async function sortPokemons(detailedPokemons) {
     const id_radio = document.getElementById("id-radio-input")
     const name_radio = document.getElementById("name-radio-input")
@@ -85,6 +89,8 @@ async function load_pokemon() {
 
     const count = document.getElementById("pokemon-count-input").value
 
+    const search_value = document.getElementById("search").value
+
     const fetch_url = `https://pokeapi.co/api/v2/pokemon?limit=${count}`
 
     try {
@@ -96,11 +102,15 @@ async function load_pokemon() {
         const data = await response.json()
 
         const detailedPromises = data.results.map(pokemon => fetchPokemonDetails(pokemon.url))
-        const detailedPokemons = await Promise.all(detailedPromises)
+        let detailedPokemons = await Promise.all(detailedPromises)
 
         console.log(detailedPokemons)
 
         await sortPokemons(detailedPokemons)
+
+        if (search_value.trim() !== "") {
+            detailedPokemons = await searchPokemons(detailedPokemons, search_value)
+        }
         
         section.innerHTML = detailedPokemons.map(pokemon => `
             <div>
@@ -138,7 +148,7 @@ $(document).ready(function() {
         e.preventDefault();
     })
 
-    $("#apply-count").on("click", function() {
+    $("#apply-count, #apply-search-input").on("click", function() {
         load_pokemon()
     })
 
